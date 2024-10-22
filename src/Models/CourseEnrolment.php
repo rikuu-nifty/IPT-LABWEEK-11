@@ -19,6 +19,5 @@ class CourseEnrolment extends BaseModel
             'student_code' => $student_code,
             'enrollment_date' => $enrollment_date
         ]);
-        var_dump($result);
     }
 }
