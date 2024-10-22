@@ -15,8 +15,6 @@
                 <th>#</th>
                 <th>Course Name</th>
                 <th>Course Code</th>
-                <th>Enrollees</th>
-                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -26,12 +24,6 @@
                 <td>{{ id }}</td>
                 <td>{{ course_name }}</td>
                 <td>{{ course_code }}</td>
-                <td>{{ enrollees_count }}</td>
-                <td>
-                    <a href="/courses/{{ course_code }}" class="btn btn-primary">
-                        Veiw Enrolled Students
-                    </a>
-                </td>
             </tr>
             {{/ items }}
         </tbody>
