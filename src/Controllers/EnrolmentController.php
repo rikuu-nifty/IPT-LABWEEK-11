@@ -29,10 +29,16 @@ class EnrolmentController extends BaseController
     {
         $course_code = $_POST['course_code'];
         $student_code = $_POST['student_code'];
-        $enrollment_date = $_POST['enrollment_date'];
-        // Enroll Student to course
-        // write code here
+        $enrolment_date = $_POST['enrolment_date'];
+
+
+        $courseObj = new CourseEnrolment();
+        $courseObj->enroll($course_code, $student_code, $enrolment_date);
+        
         
         header("Location: /courses/{$course_code}");
+        exit;
     }
+
+    
 }

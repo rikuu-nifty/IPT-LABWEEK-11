@@ -8,28 +8,42 @@
 </head>
 <body>
 
-    <h1>Courses</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Course Name</th>
-                <th>Course Code</th>
-            </tr>
-        </thead>
-        <tbody>
+    <div class="container">
+        <h1 class="my-4">List of Courses</h1>
 
-            {{# items }}
-            <tr>
-                <td>{{ id }}</td>
-                <td>{{ course_name }}</td>
-                <td>{{ course_code }}</td>
-            </tr>
-            {{/ items }}
-        </tbody>
-    </table>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Course Name</th>
+                    <th>Course Code</th>
+                    <th>Enrolled Students</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#items}}
+                    <tr>
+                        <td>{{id}}</td>
+                        <td>{{course_name}}</td>
+                        <td>{{course_code}}</td>
+                        <td>{{enrolled_students}}</td> <!-- Shows the number of enrolled students -->
+                        <td>
+                            <a class="btn btn-primary me-2" href="/export-course/{{course_code}}">Export to PDF</a>
+                            <a class="btn btn-primary" href="/courses/{{course_code}}">View Course</a>
+                        </td>
+                    </tr>
+                {{/items}}
+                {{^items}}
+                    <tr>
+                        <td colspan="4" class="text-center">No courses found</td>
+                    </tr>
+                {{/items}}
+            </tbody>
+        </table>
 
-    <a href="/enrollment-form">Enroll a Student</a>
+        <a class="btn btn-primary my-3" href="/enrollment-form">Enroll a Student</a>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
